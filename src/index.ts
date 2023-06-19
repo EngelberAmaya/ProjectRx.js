@@ -5,36 +5,3 @@ const observer: Observer<any> = {
     error: error =>console.warn('error [obs]:', error),
     complete: () => console.info('completado [obs]')
 }
-
-const obs$ = new Observable<string>(subs => {
-
-    subs.next('Hola');
-    subs.next('Mundo');
-
-    subs.next('Hola');
-    subs.next('Mundo');
-
-    // Forzar un error
-    // const a = undefined;
-    // a.nombre = 'Engelber';
-
-    subs.complete();
-
-    subs.next('Hola');
-    subs.next('Mundo');
-});
-
-obs$.subscribe(observer);
-
-// obs$.subscribe(
-//     valor => console.log('next: ', valor),
-//     error => console.warn('error: ', error),
-//     () => console.info('Completado')
-// );
-
-
-
-
-
-
-
